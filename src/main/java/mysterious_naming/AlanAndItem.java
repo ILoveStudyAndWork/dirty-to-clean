@@ -1,4 +1,4 @@
-package mysteriousNaming;
+package mysterious_naming;
 
 public class AlanAndItem {
     public static void main(String[] args) {

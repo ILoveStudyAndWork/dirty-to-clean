@@ -1,4 +1,4 @@
-package complicatedCondition.gilded_rose;
+package complicated_condition.gilded_rose;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

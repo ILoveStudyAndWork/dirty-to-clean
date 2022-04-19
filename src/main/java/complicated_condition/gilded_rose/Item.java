@@ -1,4 +1,4 @@
-package complicatedCondition.gilded_rose;
+package complicated_condition.gilded_rose;
 
 public class Item {
 

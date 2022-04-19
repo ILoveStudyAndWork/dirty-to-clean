@@ -1,4 +1,4 @@
-package badFormatting;
+package bad_formatting;
 import java.util.List;
 public class BadFormatting {
 private String name;private int age;private String nickName;private List<String> hobby;public String basicIntroduce(){
