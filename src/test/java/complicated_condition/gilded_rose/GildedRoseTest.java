@@ -22,11 +22,11 @@ class GildedRoseTest {
     @ParameterizedTest
     @MethodSource("provideBackstagePass")
     void should_update_backstage_pass_correctly(TestFixture testFixture) {
-        Item item = createItem(testFixture.name, testFixture.sellIn, testFixture.quality);
+        Item item = createBackstagePass(testFixture.sellIn, testFixture.quality);
 
         new GildedRose(new Item[]{item}).update_quality();
 
-        Item expectedItem = createItem(testFixture.name, testFixture.updatedSellIn, testFixture.updatedQuality);
+        Item expectedItem = createBackstagePass(testFixture.updatedSellIn, testFixture.updatedQuality);
         assertThat(item.toString()).isEqualTo(expectedItem.toString());
     }
 
@@ -99,6 +99,10 @@ class GildedRoseTest {
 
     private static Item createItem(String name, int sellIn, int quality) {
         return new Item(name, sellIn, quality);
+    }
+
+    private static Item createBackstagePass(int sellIn, int quality) {
+        return new BackstagePass(sellIn, quality);
     }
 
     private static Item createAgedBrie(int sellIn, int quality) {

@@ -26,18 +26,6 @@ public class Item {
     }
 
     protected void updateQuality() {
-        if (isBackstagePass()) {
-            increaseQuality();
-
-            if (sell_in < 11) {
-                increaseQuality();
-            }
-
-            if (sell_in < 6) {
-                increaseQuality();
-            }
-            return;
-        }
         decreaseQuality();
     }
 
@@ -47,10 +35,6 @@ public class Item {
 
     protected void updateQualityAfterExpired() {
         if (sell_in < 0) {
-            if (isBackstagePass()) {
-                quality = 0;
-                return;
-            }
             decreaseQuality();
         }
     }
@@ -67,8 +51,8 @@ public class Item {
         }
     }
 
-    private boolean isBackstagePass() {
-        return name.equals("Backstage passes to a TAFKAL80ETC concert");
+    protected boolean isBackstagePass() {
+        return false;
     }
 
     protected boolean isAgedBrie() {

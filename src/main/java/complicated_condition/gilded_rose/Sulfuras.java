@@ -8,7 +8,7 @@ public class Sulfuras extends Item {
 
     @Override
     protected boolean isSulfuras() {
-        return super.isSulfuras();
+        return true;
     }
 
     @Override
