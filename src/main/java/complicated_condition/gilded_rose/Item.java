@@ -22,7 +22,7 @@ public class Item {
     public void updateAfterOneDay() {
         updateQuality();
         updateSellIn();
-        updateQualityAgain();
+        updateQualityAfterExpired();
     }
 
     void updateQuality() {
@@ -57,7 +57,7 @@ public class Item {
         sell_in = sell_in - 1;
     }
 
-    void updateQualityAgain() {
+    void updateQualityAfterExpired() {
         if (sell_in < 0) {
             if (!isAgedBrie()) {
                 if (!isBackstagePass()) {
