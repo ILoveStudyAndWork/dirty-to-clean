@@ -49,9 +49,10 @@ public class Item {
 
 
     void updateSellIn() {
-        if (!isSulfuras()) {
-            sell_in = sell_in - 1;
+        if (isSulfuras()) {
+            return;
         }
+        sell_in = sell_in - 1;
     }
 
 
