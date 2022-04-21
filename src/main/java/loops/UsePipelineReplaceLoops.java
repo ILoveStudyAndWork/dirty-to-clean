@@ -9,10 +9,17 @@ public class UsePipelineReplaceLoops {
 
     public static void main(String[] args) {
         prepareStudents().stream()
-                .filter(student -> student.getName().startsWith("A"))
+                .filter(UsePipelineReplaceLoops::isNameStartWithA)
                 .max(Comparator.comparing(Student::getAge))
-                .ifPresent(oldestStudent ->
-                        System.out.printf("Oldest student:%s, age: %d", oldestStudent.getName(), oldestStudent.getAge()));
+                .ifPresent(UsePipelineReplaceLoops::printOldestStudentMessage);
+    }
+
+    private static boolean isNameStartWithA(Student student) {
+        return student.getName().startsWith("A");
+    }
+
+    private static void printOldestStudentMessage(Student oldestStudent) {
+        System.out.printf("Oldest student:%s, age: %d", oldestStudent.getName(), oldestStudent.getAge());
     }
 
     public static List<Student> prepareStudents() {
