@@ -89,10 +89,6 @@ public class Item {
         }
     }
 
-    private boolean isNormalItem() {
-        return !isAgedBrie() && !isBackstagePass() && !isSulfuras();
-    }
-
     private boolean isBackstagePass() {
         return name.equals("Backstage passes to a TAFKAL80ETC concert");
     }
