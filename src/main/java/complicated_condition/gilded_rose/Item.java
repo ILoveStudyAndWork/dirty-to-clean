@@ -50,18 +50,4 @@ public class Item {
             quality = quality + 1;
         }
     }
-
-    protected boolean isBackstagePass() {
-        return false;
-    }
-
-    protected boolean isAgedBrie() {
-        return false;
-    }
-
-    protected boolean isSulfuras() {
-        return false;
-    }
-
-
 }
