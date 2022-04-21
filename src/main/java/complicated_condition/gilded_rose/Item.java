@@ -54,14 +54,12 @@ public class Item {
         return !isAgedBrie() && !isBackstagePass() && !isSulfuras();
     }
 
-
     void updateSellIn() {
         if (isSulfuras()) {
             return;
         }
         sell_in = sell_in - 1;
     }
-
 
     void updateQualityAgain() {
         if (sell_in < 0) {
