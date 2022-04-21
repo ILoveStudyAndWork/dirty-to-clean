@@ -25,10 +25,7 @@ public class Item {
         updateQualityAfterExpired();
     }
 
-    void updateQuality() {
-        if (isSulfuras()) {
-            return;
-        }
+    protected void updateQuality() {
 
         if (isAgedBrie()) {
             increaseQuality();
@@ -50,14 +47,11 @@ public class Item {
         decreaseQuality();
     }
 
-    void updateSellIn() {
-        if (isSulfuras()) {
-            return;
-        }
+    protected void updateSellIn() {
         sell_in = sell_in - 1;
     }
 
-    void updateQualityAfterExpired() {
+    protected void updateQualityAfterExpired() {
         if (sell_in < 0) {
             if (isAgedBrie()) {
                 increaseQuality();
@@ -69,11 +63,7 @@ public class Item {
                 return;
             }
 
-            if (isSulfuras()) {
-                return;
-            }
             decreaseQuality();
-
         }
     }
 
@@ -97,8 +87,8 @@ public class Item {
         return name.equals("Aged Brie");
     }
 
-    private boolean isSulfuras() {
-        return name.equals("Sulfuras, Hand of Ragnaros");
+    protected boolean isSulfuras() {
+        return false;
     }
 
 
