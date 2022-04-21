@@ -27,9 +27,7 @@ public class Item {
 
     void updateQuality() {
         if (isNormalItem()) {
-            if (quality > 0) {
-                quality = quality - 1;
-            }
+            decreaseQuality();
         }
 
         if (isAgedBrie()) {
@@ -69,11 +67,17 @@ public class Item {
                 return;
             }
 
-            if (!isSulfuras()) {
-                if (quality > 0)
-                    quality = quality - 1;
+            if (isSulfuras()) {
+                return;
             }
+            decreaseQuality();
 
+        }
+    }
+
+    private void decreaseQuality() {
+        if (quality > 0) {
+            quality = quality - 1;
         }
     }
 
