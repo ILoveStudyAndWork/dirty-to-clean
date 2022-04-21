@@ -68,10 +68,10 @@ public class Item {
                 quality = 0;
                 return;
             }
-            if (quality > 0) {
-                if (!isSulfuras()) {
+
+            if (!isSulfuras()) {
+                if (quality > 0)
                     quality = quality - 1;
-                }
             }
 
         }
