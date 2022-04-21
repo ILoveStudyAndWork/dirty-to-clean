@@ -19,6 +19,12 @@ public class Item {
         return this.name + ", " + this.sell_in + ", " + this.quality;
     }
 
+    public void updateAfterOneDay() {
+        updateQuality();
+        updateSellIn();
+        updateQualityAgain();
+    }
+
     void updateQuality() {
         if (isNormalItem()) {
             if (quality > 0) {
@@ -42,16 +48,6 @@ public class Item {
             }
         }
 
-    }
-
-    private void increaseQuality() {
-        if (quality < 50) {
-            quality = quality + 1;
-        }
-    }
-
-    private boolean isNormalItem() {
-        return !isAgedBrie() && !isBackstagePass() && !isSulfuras();
     }
 
     void updateSellIn() {
@@ -79,6 +75,16 @@ public class Item {
         }
     }
 
+    private void increaseQuality() {
+        if (quality < 50) {
+            quality = quality + 1;
+        }
+    }
+
+    private boolean isNormalItem() {
+        return !isAgedBrie() && !isBackstagePass() && !isSulfuras();
+    }
+
     private boolean isBackstagePass() {
         return name.equals("Backstage passes to a TAFKAL80ETC concert");
     }
@@ -90,4 +96,6 @@ public class Item {
     private boolean isSulfuras() {
         return name.equals("Sulfuras, Hand of Ragnaros");
     }
+
+
 }

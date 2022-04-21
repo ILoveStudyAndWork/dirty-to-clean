@@ -9,9 +9,7 @@ class GildedRose {
 
     public void update_quality() {
         for (Item item : items) {
-            item.updateQuality();
-            item.updateSellIn();
-            item.updateQualityAgain();
+            item.updateAfterOneDay();
         }
     }
 
