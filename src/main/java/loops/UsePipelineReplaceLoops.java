@@ -2,40 +2,17 @@ package loops;
 
 import com.google.common.collect.Lists;
 
+import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 
 public class UsePipelineReplaceLoops {
 
     public static void main(String[] args) {
-        List<Student> students = prepareStudents();
-        List<Student> qualifiedStudents = getQualifiedStudents(students);
-        Student oldestStudent = getOldestStudent(qualifiedStudents);
-        if (Objects.nonNull(oldestStudent)) {
-            System.out.printf("Oldest student:%s, age: %d", oldestStudent.getName(), oldestStudent.getAge());
-        }
-    }
-
-    private static Student getOldestStudent(List<Student> qualifiedStudents) {
-        int maxMge = 0;
-        Student oldestStudent = null;
-        for (Student student : qualifiedStudents) {
-            if (student.getAge() > maxMge) {
-                maxMge = student.getAge();
-                oldestStudent = student;
-            }
-        }
-        return oldestStudent;
-    }
-
-    private static List<Student> getQualifiedStudents(List<Student> students) {
-        List<Student> qualifiedStudents = Lists.newArrayList();
-        for (Student student : students) {
-            if (student.getName().startsWith("A")) {
-                qualifiedStudents.add(student);
-            }
-        }
-        return qualifiedStudents;
+        prepareStudents().stream()
+                .filter(student -> student.getName().startsWith("A"))
+                .max(Comparator.comparing(Student::getAge))
+                .ifPresent(oldestStudent ->
+                        System.out.printf("Oldest student:%s, age: %d", oldestStudent.getName(), oldestStudent.getAge()));
     }
 
     public static List<Student> prepareStudents() {
