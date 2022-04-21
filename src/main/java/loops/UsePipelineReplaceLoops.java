@@ -9,19 +9,33 @@ public class UsePipelineReplaceLoops {
 
     public static void main(String[] args) {
         List<Student> students = prepareStudents();
-        int maxMge = 0;
-        Student oldestStudent = null;
-        for (Student student : students) {
-            if (student.getName().startsWith("A")) {
-                if (student.getAge() > maxMge) {
-                    maxMge = student.getAge();
-                    oldestStudent = student;
-                }
-            }
-        }
+        List<Student> qualifiedStudents = getQualifiedStudents(students);
+        Student oldestStudent = getOldestStudent(qualifiedStudents);
         if (Objects.nonNull(oldestStudent)) {
             System.out.printf("Oldest student:%s, age: %d", oldestStudent.getName(), oldestStudent.getAge());
         }
+    }
+
+    private static Student getOldestStudent(List<Student> qualifiedStudents) {
+        int maxMge = 0;
+        Student oldestStudent = null;
+        for (Student student : qualifiedStudents) {
+            if (student.getAge() > maxMge) {
+                maxMge = student.getAge();
+                oldestStudent = student;
+            }
+        }
+        return oldestStudent;
+    }
+
+    private static List<Student> getQualifiedStudents(List<Student> students) {
+        List<Student> qualifiedStudents = Lists.newArrayList();
+        for (Student student : students) {
+            if (student.getName().startsWith("A")) {
+                qualifiedStudents.add(student);
+            }
+        }
+        return qualifiedStudents;
     }
 
     public static List<Student> prepareStudents() {
