@@ -20,9 +20,11 @@ public class Item {
     }
 
     void updateQuality() {
-        if (isNormalItem() && quality > 0) {
-            quality = quality - 1;
-        }
+        if (isNormalItem())
+            if (quality > 0) {
+                quality = quality - 1;
+            }
+
         if (isAgedBrie() || isBackstagePass()) {
             if (quality < 50) {
                 quality = quality + 1;
