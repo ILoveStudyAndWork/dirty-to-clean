@@ -26,12 +26,13 @@ public class Item {
     }
 
     void updateQuality() {
-        if (isNormalItem()) {
-            decreaseQuality();
+        if (isSulfuras()) {
+            return;
         }
 
         if (isAgedBrie()) {
             increaseQuality();
+            return;
         }
 
         if (isBackstagePass()) {
@@ -44,8 +45,9 @@ public class Item {
             if (sell_in < 6) {
                 increaseQuality();
             }
+            return;
         }
-
+        decreaseQuality();
     }
 
     void updateSellIn() {
